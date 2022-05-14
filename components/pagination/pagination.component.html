@@ -1,0 +1,52 @@
+<div>
+    <div class="row">
+        <div class="col-md-4 col-sm-4 mb-4">
+    <div class="form-group page-items float-left mb-0">
+        <label> Page Size </label>
+        <select class="form-control form-control-sm w-auto d-inline-block mr-2"
+            (change)="onchangePageSize($event.target.value)">
+            <option selected value="300">300</option>
+            <option  value="500">500</option>
+            <option  value="1000">1000</option>
+            <!-- <option value="50000">50000</option> -->
+
+        </select>
+    </div>
+        </div>
+        <div class="col-md-8 col-sm-8 mb-4">
+
+    <div class="custom-pager float-right">
+        <!-- <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls> -->
+        <div class="custom-pager-inner d-flex">
+
+            <a [style.pointer-events]="!firstPageVisibility ?'none':'auto'" (click)="onchangePageIndex(1)"
+                class="pager-a cursor-hand" [ngClass]="!firstPageVisibility ?'first-page-class':''"><i class="fa fa-step-backward" aria-hidden="true"></i>
+            </a>
+            <a [style.pointer-events]="!firstPageVisibility ?'none':'auto'" (click)="onchangePageBackword()"
+                class="pager-a cursor-hcursor-hand plus-minus-iconsand"
+                [ngClass]="!firstPageVisibility ?'first-page-class':''"><i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </a>
+
+            <div class="pager-page-select d-flex align-items-center ml-2 mr-2">
+                <p class="m-0">Goto Page</p>
+                <select class="form-control form-control-sm w-auto d-inline-block" [value]="currentPage"
+                    (change)="onchangePageIndex($event.target.value)">
+                    <ng-container *ngIf=totalPages>
+                    <ng-container  *ngFor="let in of counter(totalPages) ;let pageIndex = index">
+                        <option [value]="pageIndex+1">{{pageIndex+1}}</option>
+                    </ng-container>
+                </ng-container>
+                </select>
+            </div>
+
+            <a [style.pointer-events]="!lastPageVisibility ?'none':'auto'" (click)="onchangePageForward()"
+                class="pager-a cursor-hand" [ngClass]="!lastPageVisibility ?'first-page-class':''"><i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </a>
+            <a [style.pointer-events]="!lastPageVisibility ?'none':'auto'" (click)="onchangePageIndex(totalPages)"
+                class="pager-a cursor-hand" [ngClass]="!lastPageVisibility ?'first-page-class':''"><i class="fa fa-step-forward" aria-hidden="true"></i>
+            </a>
+
+        </div>
+    </div>
+    </div>
+</div>

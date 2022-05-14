@@ -1,0 +1,104 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <main role="main" class="main">
+            <div class="main-content">
+
+                <div class="row">
+                    <div class="main-header"><h5 class="float-left mb-0 pt-1">
+                        <i class="fa fa-user text-danger mr-1" style="position: relative; top:2px"></i> 
+                        FARS DATA</h5></div>
+                        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px', fullScreenBackdrop:true }"></ngx-loading>
+                    <div class="col-12">
+                        <div class="--web-table-user  d-lg-block" >
+
+                        <div class="card table-parent" style=" overflow-y: auto;
+                        height: 440px;">
+                            <div class="card-datatable table-responsive">
+                                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                                    <div class="row d-flex justify-content-between align-items-center m-3">
+                                       
+                                        <div
+                                            class="col-lg-6 d-flex align-items-center justify-content-lg-start flex-lg-nowrap flex-wrap pe-lg-1 p-0">
+                                            <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                                                <div class="col-md-12">
+                                                    <div class="form-inline  filter-block flex-end">
+                                                        <div class="form-group position-relative">
+                                                            <input type="text" value="Filter" class="form-control" id="name"
+                                                                [(ngModel)]="filterText"
+                                                                (keyup.enter)="!this.isFilterInProgress ? onClickCustomFilter(filterText) : false"
+                                                                placeholder="Filter Data By Year">
+                                                            <button class="btn-clear-filter" type="submit" *ngIf="filterText" aria-label="Clear"
+                                                                (click)="clearCustomFilter()">
+                                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            <div class="invoice_status ms-sm-2"></div>
+                                        </div>
+                                    </div>
+
+                                    <table class="table table-cst mb-5 col-12">
+                                        <thead>
+                                            <tr style=" position: sticky;
+                                            top: 0;">
+                                                <th class="cursor-hand"  scope="col">
+                                                    STATE NAME
+                                                    <!-- Name<i
+                                                        [ngClass]="{'fa fa-arrow-down':sortBy==sortByField.FullName && !sortDirection}"></i>
+                                                    <i
+                                                        [ngClass]="{'fa fa-arrow-up':sortBy==sortByField.FullName && sortDirection}"></i> -->
+                                                </th>
+                                                <th class="cursor-hand"  scope="col"> MAKE NAME</th>
+                                                <th class="cursor-hand"  scope="col"> MAKE MODEL NAME</th>
+                                                <th class="cursor-hand"  scope="col"> YEAR</th>
+                                                <th class="cursor-hand"  scope="col"> HARNAME</th>
+                                                <th class="cursor-hand"  scope="col"> LICENSE TYPE</th>
+                                                <th class="cursor-hand"  scope="col"> DRIVE PRESENT</th>
+                                                <th class="cursor-hand"  scope="col"> DEATHS</th>
+                                                <!-- <th class="cursor-hand"  scope="col"> YEAR</th> -->
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr
+                                                *ngFor="let vehicle of listUsers.vehicle | paginate: { itemsPerPage: pagination.pageSize, currentPage: pagination.pageIndex,totalItems :listUsers.count }">
+                                                <td scope="row">{{vehicle.statename}}</td>
+                                                <td scope="row">{{vehicle.makename}}</td>
+                                                <td scope="row">{{vehicle.maK_MODNAME}}</td>
+                                                <td scope="row">{{vehicle.moD_YEAR}}</td>
+                                                <td scope="row">{{vehicle.m_HARNAME}}</td>
+                                                <td scope="row">{{vehicle.l_TYPENAME}}</td>
+                                                <!-- <td scope="row">{{vehicle.l_STATUSNAME}}</td> -->
+                                                <td scope="row">{{vehicle.dR_PRES}}</td>
+                                                <td scope="row">{{vehicle.deaths}}</td>
+                                                <!-- <td scope="row">{{vehicle.datA_YEAR}}</td> -->
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="d-flex justify-content-between row">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="clearifx"></div>
+
+                                            <div class="fix-pager">
+                                                <app-pagination (pager)="onPageChange($event)" [_count]='count'></app-pagination>
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div>
+        </main>
+    </div>
+</div>
