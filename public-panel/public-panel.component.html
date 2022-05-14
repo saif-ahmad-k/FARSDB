@@ -1,0 +1,29 @@
+<nav id="sidebarMenu" class="d-md-block bg-light sidebar collapse">
+    <div class="navbar-header expanded">
+        <h1>FMS</h1>
+
+            <ul class="nav flex-column"><li class="nav-item" style="text-align: center;width: 100%;">
+                <a class="navbar-brand" ng-reflect-router-link="/dashboard" href="/tenants">
+                    <!-- <img src="assets/images/logo.png" style="max-height: 50px;"> -->
+                </a></li></ul>
+        </div>
+    <div class="sidebar-sticky sidebar-sticky-mobile">
+        <ul class="nav flex-column">
+            <ng-container>
+             
+                <li class="nav-item" *ngIf="checkUserRole(sideMenu.Users)">
+                    <a data-toggle="tooltip" title="Hooray!" (click)="redirectTo('users')" class="nav-link" [ngClass]="CurrentPage == 2 ? 'active': ''">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="d-none d-md-block d-lg-block">Users</span>
+                    </a>
+                </li>
+                
+               
+            </ng-container>
+
+            
+        </ul>
+
+
+    </div>
+</nav>
