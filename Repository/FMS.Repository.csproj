@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+	  <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.5.1" />
+    <PackageReference Include="NLog" Version="4.5.0-rc06" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.1.3" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.20" />
+    <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\FMS.Common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\" />
+  </ItemGroup>
+</Project>
